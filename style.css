@@ -108,7 +108,7 @@ body {
     background-color: #9a92ed;
     color: white;
     cursor: pointer;
-    margin-left: 89.5%;
+    float: right;
     box-sizing: border-box;
     margin-top: 0px;
     text-decoration-line: none;
