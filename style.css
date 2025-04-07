@@ -113,3 +113,6 @@ body {
     margin-top: 0px;
     text-decoration-line: none;
 }
+input[type='radio']{
+  margin-bottom: 20px;
+}
