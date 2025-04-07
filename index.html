@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Інтерактивний Тест</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      padding: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Створи свій тест</h1>
+
+  <div class="question">
+    <p>1. Яка кількість хромосом у людини?</p>
+    <input type="radio" name="q1" value="0"> 44<br>
+    <input type="radio" name="q1" value="1"> 46<br>
+    <input type="radio" name="q1" value="0"> 48<br>
+  </div>
+
+  <div class="question">
+    <p>2. Що таке мейоз?</p>
+    <input type="radio" name="q2" value="1"> Поділ клітини з утворенням гамет<br>
+    <input type="radio" name="q2" value="0"> Вироблення енергії клітиною<br>
+    <input type="radio" name="q2" value="0"> Перетворення білків<br>
+  </div>
+
+  <div class="question">
+    <p>3. Який тип мутацій змінює кількість хромосом?</p>
+    <input type="radio" name="q3" value="0"> Генна мутація<br>
+    <input type="radio" name="q3" value="1"> Геномна мутація<br>
+    <input type="radio" name="q3" value="0"> Хромосомна мутація<br>
+  </div>
+
+  <button onclick="checkAnswers()">Перевірити</button>
+  <div id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      const total = 3;
+
+      for (let i = 1; i <= total; i++) {
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        if (answer && answer.value === "1") {
+          score++;
+        }
+      }
+
+      document.getElementById('result').textContent = `Ваш результат: ${score} з ${total}`;
+    }
+  </script>
+</body>
+</html>
