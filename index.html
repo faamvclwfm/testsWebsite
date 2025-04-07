@@ -3,77 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Інтерактивний Тест</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f5f9;
-      padding: 20px;
-    }
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 20px;
-    }
-    .nav button {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 0.5px solid #ccc;
-      color: white;
-      font-weight: bold;
-      background-color: white; 
-      cursor: pointer;
-    }
-    .nav button.active {
-      background-color: #3b82f6; 
-      color: white;
-    }
-    .nav button.correct {
-      background-color: #10b981 !important; 
-      color: white;
-    }
-    .nav button.incorrect {
-      background-color: #ef4444 !important; 
-      color: white;
-    }
-    .question {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: none;
-    }
-    .question.active {
-      display: block;
-    }
-    button.main {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #3b82f6;
-      color: white;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    button.next {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #f67d3b;
-      color: white;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="nav" id="taskNav"></div>
@@ -106,62 +36,8 @@
 
   <div id="result"></div>
 
-  <script>
-    const questions = document.querySelectorAll('.question');
-    const nav = document.getElementById('taskNav');
-    const buttons = [];
-    let currentQuestion = 0;
-
-    questions.forEach((q, i) => {
-      const btn = document.createElement('button');
-      btn.textContent = i + 1;
-      btn.onclick = () => showQuestion(i);
-      if (i === 0) btn.classList.add('active');
-      nav.appendChild(btn);
-      buttons.push(btn);
-    });
-
-    function showQuestion(index) {
-      questions.forEach(q => q.classList.remove('active'));
-      questions[index].classList.add('active');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      buttons[index].classList.add('active');
-      currentQuestion = index;
-    }
-
-    function checkAnswers() {
-      let score = 0;
-
-      questions.forEach((q, i) => {
-        const selected = q.querySelector('input[type="radio"]:checked');
-        const isCorrect = selected && selected.value === "1";
-
-        buttons[i].classList.remove('correct', 'incorrect');
-
-        if (isCorrect) {
-          score++;
-          buttons[i].classList.add('correct');
-        } else {
-          buttons[i].classList.add('incorrect');
-        }
-      });
-
-      document.getElementById('result').textContent = `Ваш результат: ${score} з ${questions.length}`;
-    }
-
-    function nextQuestion() {
-      // Hide current question
-      questions[currentQuestion].classList.remove('active');
-      buttons[currentQuestion].classList.remove('active');
-
-      // Move to next question
-      currentQuestion = (currentQuestion + 1) % questions.length;
-
-      // Show the next question
-      questions[currentQuestion].classList.add('active');
-      buttons[currentQuestion].classList.add('active');
-    }
+  <script src="script.js">
+    
   </script>
 </body>
 </html>
