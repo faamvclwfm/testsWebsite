@@ -67,3 +67,49 @@ body {
     cursor: pointer;
     margin-right: 10px;
   }
+  button.again {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f6513b;
+    color: white;
+    cursor: pointer;
+    display: none;
+    margin-left: 89.5%;
+    box-sizing: border-box;
+    margin-top: 0px;
+  }
+  /*
+.statc-answer{
+  color: black;
+  font-weight: normal;
+}
+  */
+.correct-answer {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.incorrect-answer {
+  color: #ef4444;
+  font-weight: bold;
+}
+.mainSection{
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+}
+.allTests{
+  padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9a92ed;
+    color: white;
+    cursor: pointer;
+    margin-left: 89.5%;
+    box-sizing: border-box;
+    margin-top: 0px;
+    text-decoration-line: none;
+}
